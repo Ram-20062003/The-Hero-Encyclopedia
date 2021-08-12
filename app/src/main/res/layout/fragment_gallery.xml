@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.gallery.GalleryFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:ems="10"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="62dp"
+        android:layout_marginBottom="10dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        />
+    <ImageButton
+        android:id="@+id/search"
+        android:layout_width="66dp"
+        android:layout_height="56dp"
+        android:src="@drawable/ic_baseline_search_24"
+        android:layout_marginStart="340dp"
+        android:layout_marginLeft="340dp"
+
+        android:background="@android:color/transparent"/>
+    <ImageButton
+        android:id="@+id/cancel"
+        android:layout_width="66dp"
+        android:layout_height="56dp"
+        android:src="@drawable/ic_baseline_cancel_24"
+        android:layout_marginStart="340dp"
+        android:visibility="gone"
+        android:layout_marginLeft="340dp"
+        android:background="@android:color/transparent"/>
+
+</FrameLayout>

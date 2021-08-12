@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view"
+    >
+<item android:title="General">
+    <menu>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="All Heroes" />
+        <item
+            android:id="@+id/nav_fav"
+            android:icon="@drawable/ic_baseline_favorite_24"
+            android:title="@string/favorites" />
+    </group>
+    </menu>
+</item>
+    <item android:title="Heros" android:icon="@drawable/ic_baseline_accessibility_24">
+        <menu >
+            <group android:checkableBehavior="single">
+            <item
+                android:id="@+id/nav_home"
+                android:icon="@drawable/ic_baseline_arrow_forward_ios_24"
+                android:title="Male Heros" />
+            <item
+                android:id="@+id/nav_gallery"
+                android:icon="@drawable/ic_baseline_arrow_forward_ios_24"
+                android:title="Female Heroes" />
+            </group>
+        </menu>
+    </item>
+    <item android:title="Exit" android:icon="@drawable/ic_baseline_accessibility_24">
+        <menu >
+            <item
+                android:id="@+id/nav_exit"
+                android:icon="@drawable/ic_baseline_exit_to_app_24"
+                android:title="Exit"
+                />
+        </menu>
+    </item>
+
+</menu>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="300dp"
+    android:layout_height="315dp"
+    android:layout_marginStart="50dp"
+    android:layout_marginLeft="50dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:background="@android:color/transparent"
+    >
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview"
+        android:layout_width="300dp"
+        android:layout_height="315dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        app:cardCornerRadius="20dp"
+        android:elevation="50dp"
+        >
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="300dp"
+            android:layout_height="232dp"
+            android:transitionName="get_details"
+            android:layout_marginBottom="102dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@color/white"
+            tools:ignore="VectorDrawableCompat" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="232dp"
+            android:background="#faebeb"
+>
+            <TextView
+                android:id="@+id/hero_id"
+                android:layout_width="134dp"
+                android:layout_height="35dp"
+                android:gravity="center_horizontal"
+                android:text="100"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.446"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/hero_name"
+                android:layout_width="259dp"
+                android:layout_height="41dp"
+                android:layout_marginTop="3dp"
+                android:gravity="center_horizontal"
+                android:text="Name"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.509"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/hero_id"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <ImageButton
+                android:id="@+id/imageButton2"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_baseline_favorite_null"
+                android:background="@android:color/transparent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+            <ImageButton
+                android:id="@+id/imageButton2_fav"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_baseline_favorite_24"
+                android:visibility="gone"
+                android:background="@android:color/transparent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

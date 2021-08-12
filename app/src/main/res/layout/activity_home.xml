@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/wall">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="382dp"
+        android:layout_height="187dp"
+        android:layout_marginTop="44dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.448"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/part1" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="377dp"
+        android:layout_height="199dp"
+        android:layout_marginTop="260dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.17"
+        app:srcCompat="@drawable/part2" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="271dp"
+        android:layout_height="212dp"
+        android:fontFamily="@font/petrona"
+        android:text="Find \n \t \t \t \t \tyour\n \t \t \t \t \t \t \t  hero"
+        android:textColor="#F3EDED"
+        android:textSize="44sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.509" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:layout_marginTop="3dp"
+        android:background="@drawable/wall"
+        android:progress="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+</androidx.constraintlayout.widget.ConstraintLayout>
