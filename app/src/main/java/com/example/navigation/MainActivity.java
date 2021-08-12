@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         setSupportActionBar(binding.appBarActivityMaimScreen.toolbar);
-        Log.d(TAG,Home_Screen.list_all.get(0).getAliases().get(0));
+        Log.d(TAG, String.valueOf(Home_Screen.list_all.size()));
         DrawerLayout drawer = (DrawerLayout)findViewById(R.id.drawer_layout);
         NavigationView navigationView =(NavigationView)findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each

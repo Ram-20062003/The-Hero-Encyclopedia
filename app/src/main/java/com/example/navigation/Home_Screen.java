@@ -32,16 +32,6 @@ public class Home_Screen extends AppCompatActivity {
     public static List<String> list_img_url = new ArrayList<>();
     public static List<Integer> list_id = new ArrayList<>();
     public static List<For_display> list_all=new ArrayList<>();
-    /*public static List<String> list_slug=new ArrayList<>();
-    public static List<Integer> list_intelligence=new ArrayList<>();
-    public static List<Integer> list_strength=new ArrayList<>();
-    public static List<Integer> list_speed=new ArrayList<>();
-    public static List<Integer> list_durablity=new ArrayList<>();
-    public static List<Integer> list_power=new ArrayList<>();
-    public static List<Integer> list_combat=new ArrayList<>();
-    public static List<String> list_gender=new ArrayList<>();
-    public static List<String> list_race=new ArrayList<>();
-    public static List<String> list_height=new ArrayList<>();*/
     public static List<String> male_name = new ArrayList<>();
     public static List<Integer> male_list_id = new ArrayList<>();
     public static List<String> male_list_img_url = new ArrayList<>();
@@ -59,6 +49,30 @@ public class Home_Screen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        if(list_all!=null)
+            list_all.clear();
+        if(list_name!=null)
+            list_name.clear();
+        if(list_img_url!=null)
+            list_img_url.clear();
+        if(list_id!=null)
+            list_id.clear();
+        if(male_name!=null)
+            male_name.clear();
+        if(male_list_id!=null)
+            male_list_id.clear();
+        if(male_list_img_url!=null)
+            male_list_img_url.clear();
+        if(female_name!=null)
+            female_name.clear();
+        if(female_list_id!=null)
+            female_list_id.clear();
+        if(list!=null)
+            list.clear();
+        if(Fav_button!=null)
+            Fav_button.clear();
+        if(Un_Fav_button!=null)
+            Un_Fav_button.clear();
         Retrofit retrofit=new Retrofit.Builder().baseUrl("https://akabab.github.io/superhero-api/api/").addConverterFactory(GsonConverterFactory.create()).build();
         JsonInterface jsonInterface=retrofit.create(JsonInterface.class);
         Call<List<SuperHero>> call=jsonInterface.getSuperHero();

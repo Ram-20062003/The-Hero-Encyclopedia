@@ -116,7 +116,7 @@ Context context;
 
     @Override
     public int getItemCount() {
-        return name.size();
+        return id.size();
     }
 
     public class RecyclerView_ViewHolder extends RecyclerView.ViewHolder {
