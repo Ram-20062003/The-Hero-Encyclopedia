@@ -49,8 +49,8 @@
                 android:id="@+id/hero_profile"
                 android:layout_width="250dp"
                 android:layout_height="250dp"
-
                 android:layout_gravity="center"
+                android:layout_marginTop="20dp"
                 android:transitionName="get_details_image"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

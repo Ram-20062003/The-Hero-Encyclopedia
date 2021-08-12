@@ -33,12 +33,12 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="271dp"
-        android:layout_height="212dp"
-        android:fontFamily="@font/petrona"
-        android:text="Find \n \t \t \t \t \tyour\n \t \t \t \t \t \t \t  hero"
+        android:layout_width="321dp"
+        android:layout_height="261dp"
+        android:fontFamily="@font/flavors"
+        android:text="\n Find \n \t \t \t \t \t  your\n \t \t \t \t \t \t \t     hero"
         android:textColor="#F3EDED"
-        android:textSize="44sp"
+        android:textSize="50dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

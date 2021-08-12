@@ -2,6 +2,9 @@ package com.example.navigation;
 
 import android.content.AsyncQueryHandler;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -73,6 +76,9 @@ public class Home_Screen extends AppCompatActivity {
             Fav_button.clear();
         if(Un_Fav_button!=null)
             Un_Fav_button.clear();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setStatusBarColor(Color.parseColor("#0b1f6e"));
+        }
         Retrofit retrofit=new Retrofit.Builder().baseUrl("https://akabab.github.io/superhero-api/api/").addConverterFactory(GsonConverterFactory.create()).build();
         JsonInterface jsonInterface=retrofit.create(JsonInterface.class);
         Call<List<SuperHero>> call=jsonInterface.getSuperHero();

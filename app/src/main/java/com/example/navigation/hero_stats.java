@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -74,7 +75,9 @@ public class hero_stats extends AppCompatActivity {
         TextView t_relative=(TextView)findViewById(R.id.relatives);
         TextView t_pob=(TextView)findViewById(R.id.pob);
         TextView t_name=(TextView)findViewById(R.id.title_hero);
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setStatusBarColor(Color.parseColor("#f59505"));
+        }
         Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar_hero);
         setSupportActionBar(toolbar);
         toolbar.setBackgroundColor(Color.parseColor("#f59505"));
@@ -87,12 +90,13 @@ public class hero_stats extends AppCompatActivity {
                         url=Home_Screen.list_img_url.get(i);
                        //Picasso.get().load(superHero.getImages().getLg()).resize(276, 249).into(image);
                         check="ram";
-                        Picasso.get().load(url).resize(276,249).into(new Target() {
+                        Picasso.get().load(url).resize(250,250).into(new Target() {
                             @Override
                             public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
                                 path= MediaStore.Images.Media.insertImage(getContentResolver(),bitmap,"IMG_" + System.currentTimeMillis(),null);
                                 bitmap1=bitmap;
                                 image.setImageBitmap(bitmap);
+
                             }
 
                             @Override
