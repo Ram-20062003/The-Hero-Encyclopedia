@@ -91,6 +91,15 @@ public class Home_Screen extends AppCompatActivity {
         imageView.setAnimation(animation);
         imageView2.setAnimation(animation2);
         textView.setAnimation(animation1);
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                list = TableRoomDatabase.getInstance(getApplicationContext()).hero_info_dao().get_hero();
+                Log.d(TAG, list.toString());
+                Log.d(TAG, "size" + String.valueOf(list.size()));
+            }
+        });
+        thread.start();
         Handler handler=new Handler();
         handler.postDelayed(new Runnable() {
         boolean chk_state;
