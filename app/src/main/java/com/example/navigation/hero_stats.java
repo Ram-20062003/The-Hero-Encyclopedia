@@ -191,7 +191,7 @@ public class hero_stats extends AppCompatActivity {
             case R.id.share:
                 output+="\n \n"+"image-url="+url;
                 Uri uri=Uri.parse(path);
-                Toast.makeText(getApplicationContext(), String.valueOf(uri) ,Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), String.valueOf(uri) ,Toast.LENGTH_SHORT).show();
                 Intent intent=new Intent();
                 intent.setAction(Intent.ACTION_SEND);
                 intent.setType("image/jpeg");

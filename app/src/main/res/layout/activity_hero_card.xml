@@ -60,7 +60,7 @@
 
             <TextView
                 android:id="@+id/hero_name"
-                android:layout_width="259dp"
+                android:layout_width="match_parent"
                 android:layout_height="41dp"
                 android:layout_marginTop="3dp"
                 android:gravity="center_horizontal"
@@ -76,7 +76,7 @@
 
             <ImageButton
                 android:id="@+id/imageButton2"
-                android:layout_width="80dp"
+                android:layout_width="50dp"
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_baseline_favorite_null"
                 android:background="@android:color/transparent"
@@ -88,7 +88,7 @@
                 app:layout_constraintVertical_bias="0.0" />
             <ImageButton
                 android:id="@+id/imageButton2_fav"
-                android:layout_width="80dp"
+                android:layout_width="50dp"
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_baseline_favorite_24"
                 android:visibility="gone"

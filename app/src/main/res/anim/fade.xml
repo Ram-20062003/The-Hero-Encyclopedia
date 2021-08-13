@@ -13,7 +13,7 @@
 
     <translate android:fromYDelta="15%p"
                android:toYDelta="0"
-               android:duration="2000" />
+               android:duration="1000" />
 
 
 
