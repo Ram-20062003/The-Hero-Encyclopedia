@@ -17,13 +17,13 @@
     </group>
     </menu>
 </item>
-    <item android:title="Heros" android:icon="@drawable/ic_baseline_accessibility_24">
+    <item android:title="Heroes" android:icon="@drawable/ic_baseline_accessibility_24">
         <menu >
             <group android:checkableBehavior="single">
             <item
                 android:id="@+id/nav_home"
                 android:icon="@drawable/ic_baseline_arrow_forward_ios_24"
-                android:title="Male Heros" />
+                android:title="Male Heroes" />
             <item
                 android:id="@+id/nav_gallery"
                 android:icon="@drawable/ic_baseline_arrow_forward_ios_24"

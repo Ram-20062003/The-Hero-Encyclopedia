@@ -3,6 +3,7 @@ package com.example.navigation.ui.slideshow;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,7 @@ import com.example.navigation.Home_Screen;
 import com.example.navigation.List_details;
 import com.example.navigation.R;
 import com.example.navigation.RecyclerView_Adapter;
+import com.example.navigation.TableRoomDatabase;
 import com.example.navigation.databinding.FragmentSlideshowBinding;
 
 import java.util.ArrayList;
@@ -39,22 +41,25 @@ public class SlideshowFragment extends Fragment {
     List_details list_details;
     EditText editText;
     RecyclerView_Adapter recyclerview_adapter;
-
+    private static final String TAG = "SlideshowFragment";
     private FragmentSlideshowBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-       /* binding = FragmentSlideshowBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
-
-        final TextView textView = binding.editTextTextPersonName;
-        textView.setText("slideshow");
-        return root;*/
         View view= inflater.inflate(R.layout.fragment_slideshow, container, false);
         recyclerView=view.findViewById(R.id.recycler_view);
         recyclerview_adapter = new RecyclerView_Adapter(Home_Screen.list_name,Home_Screen.list_id,Home_Screen.list_img_url);
         recyclerView.setAdapter(recyclerview_adapter);
         editText = (EditText) view.findViewById(R.id.editTextTextPersonName);
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Home_Screen.list = TableRoomDatabase.getInstance(getContext()).hero_info_dao().get_hero();
+                Log.d(TAG, Home_Screen.list.toString());
+                Log.d(TAG, "size" + String.valueOf(Home_Screen.list.size()));
+            }
+        });
+        thread.start();
         ImageButton b_search,b_cancel;
         b_search=(ImageButton)view.findViewById(R.id.search);
         b_cancel=(ImageButton)view.findViewById(R.id.cancel);

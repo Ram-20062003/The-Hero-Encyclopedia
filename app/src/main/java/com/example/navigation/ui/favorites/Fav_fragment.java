@@ -3,12 +3,14 @@ package com.example.navigation.ui.favorites;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,6 +18,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.navigation.Hero_info_table;
+import com.example.navigation.Home_Screen;
 import com.example.navigation.R;
 import com.example.navigation.RecyclerView_Fav_Adapter;
 import com.example.navigation.TableRoomDatabase;
@@ -47,6 +50,15 @@ public class Fav_fragment extends Fragment {
                 ImageButton b_search,b_cancel;
                 b_search=(ImageButton)view.findViewById(R.id.search);
                 b_cancel=(ImageButton)view.findViewById(R.id.cancel);
+                Thread thread = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Home_Screen.list = TableRoomDatabase.getInstance(getContext()).hero_info_dao().get_hero();
+                        Log.d(TAG, Home_Screen.list.toString());
+                        Log.d(TAG, "size" + String.valueOf(Home_Screen.list.size()));
+                    }
+                });
+                thread.start();
                 if(editText.getText().equals("")) {
                     b_search.setVisibility(View.VISIBLE);
                     b_cancel.setVisibility(View.GONE);

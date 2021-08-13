@@ -13,6 +13,8 @@
         android:layout_height="62dp"
         android:background="@drawable/border"
         android:textColor="@color/black"
+        android:fontFamily="@font/petrona"
+        android:textSize="25dp"
         android:ems="10"
         />
 

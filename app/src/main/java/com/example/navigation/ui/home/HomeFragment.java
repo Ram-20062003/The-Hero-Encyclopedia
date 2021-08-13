@@ -3,6 +3,7 @@ package com.example.navigation.ui.home;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,7 @@ import com.example.navigation.Home_Screen;
 import com.example.navigation.List_details;
 import com.example.navigation.R;
 import com.example.navigation.RecyclerView_Adapter;
+import com.example.navigation.TableRoomDatabase;
 import com.example.navigation.databinding.FragmentHomeBinding;
 
 import java.util.ArrayList;
@@ -39,6 +41,7 @@ public class HomeFragment extends Fragment {
     List_details list_details;
     EditText editText;
     RecyclerView_Adapter recyclerview_adapter;
+    private static final String TAG = "HomeFragment";
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home,container,false);
@@ -56,7 +59,15 @@ public class HomeFragment extends Fragment {
         ImageButton b_search,b_cancel;
         b_search=(ImageButton)view.findViewById(R.id.search);
         b_cancel=(ImageButton)view.findViewById(R.id.cancel);
-
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Home_Screen.list = TableRoomDatabase.getInstance(getContext()).hero_info_dao().get_hero();
+                Log.d(TAG, Home_Screen.list.toString());
+                Log.d(TAG, "size" + String.valueOf(Home_Screen.list.size()));
+            }
+        });
+        thread.start();
         b_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

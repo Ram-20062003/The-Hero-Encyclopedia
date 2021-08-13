@@ -13,6 +13,8 @@
         android:layout_height="62dp"
         android:background="@drawable/border"
         android:textColor="@color/black"
+        android:fontFamily="@font/petrona"
+        android:textSize="25dp"
         android:ems="10"
         />
 
@@ -31,7 +33,6 @@
         android:src="@drawable/ic_baseline_search_24"
         android:layout_marginStart="340dp"
         android:layout_marginLeft="340dp"
-
         android:background="@android:color/transparent"/>
     <ImageButton
         android:id="@+id/cancel"

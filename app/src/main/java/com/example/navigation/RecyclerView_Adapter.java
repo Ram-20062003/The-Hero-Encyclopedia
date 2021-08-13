@@ -25,7 +25,7 @@ public class RecyclerView_Adapter extends RecyclerView.Adapter<RecyclerView_Adap
    List<String> name;
    List<String>image_url;
    List<Integer>id;
-   List<Hero_info_table> list=new ArrayList<>();
+   //List<Hero_info_table> list=new ArrayList<>();
    public static int pos;
     private static final String TAG = "RecyclerView_Adapter";
 Context context;
@@ -46,11 +46,21 @@ Context context;
 
     @Override
     public void onBindViewHolder(RecyclerView_ViewHolder holder, int position) {
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Home_Screen.list = TableRoomDatabase.getInstance(holder.imageButton.getContext()).hero_info_dao().get_hero();
+                Log.d(TAG, Home_Screen.list.toString());
+                Log.d(TAG, "size" + String.valueOf(Home_Screen.list.size()));
+            }
+        });
+        thread.start();
         holder.t_name.setText(name.get(position));
         holder.t_id.setText(String.valueOf(id.get(position)));
         context=holder.itemView.getContext();
         Picasso.get().load(image_url.get(position)).resize(300,232).into(holder.image_hero);
         int c=0,d=0,dw=0;
+
         for (int i=0;i<Home_Screen.list.size();i++)
         {
             if(name.get(position).equals(Home_Screen.list.get(i).getHero_name()))
@@ -64,31 +74,11 @@ Context context;
                 holder.imageButton.setVisibility(View.VISIBLE);
                 holder.imageButton_fav.setVisibility(View.GONE);
             }
-            for (int j=0;j<Home_Screen.Fav_button.size();j++)
-            {
-                if(name.get(position).equals(Home_Screen.Fav_button.get(j)))
-                    d=1;
-            }
-            if(d==1) {
-                holder.imageButton.setVisibility(View.GONE);
-                holder.imageButton_fav.setVisibility(View.VISIBLE);
-            }
-            if(d==0){
-        for (int j=0;j<Home_Screen.Un_Fav_button.size();j++)
-        {
-            if(name.get(position).equals(Home_Screen.Un_Fav_button.get(j)))
-                dw=1;
-        }
-        if(dw==1) {
-            holder.imageButton_fav.setVisibility(View.GONE);
-            holder.imageButton.setVisibility(View.VISIBLE);
-        }}
         holder.imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 holder.imageButton.setVisibility(View.GONE);
                 holder.imageButton_fav.setVisibility(View.VISIBLE);
-               Home_Screen. Fav_button.add(name.get(position));
                 Toast.makeText(v.getContext(),"You liked \t"+holder.t_name.getText(),Toast.LENGTH_SHORT).show();
                 Hero_info_table hero_info_table=new Hero_info_table(id.get(position),name.get(position),image_url.get(position));
                 Load_Table load_table=new Load_Table();
@@ -100,7 +90,6 @@ Context context;
                 public void onClick(View v) {
                     holder.imageButton_fav.setVisibility(View.GONE);
                     holder.imageButton.setVisibility(View.VISIBLE);
-                    Home_Screen.Un_Fav_button.add(name.get(position));
                     Thread thread=new Thread(new Runnable() {
                         @Override
                         public void run() {
