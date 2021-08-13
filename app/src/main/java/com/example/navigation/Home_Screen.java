@@ -122,11 +122,11 @@ public class Home_Screen extends AppCompatActivity {
 },2000);
 
     }
-    class Load_task extends AsyncTask<For_display,Integer,Void>
+    class Load_task extends AsyncTask<Void,Integer,Void>
     {
         int a=10;
         @Override
-        protected Void doInBackground(For_display... for_displays) {
+        protected Void doInBackground(Void... voids) {
 
             Retrofit retrofit=new Retrofit.Builder().baseUrl("https://akabab.github.io/superhero-api/api/").addConverterFactory(GsonConverterFactory.create()).build();
             JsonInterface jsonInterface=retrofit.create(JsonInterface.class);

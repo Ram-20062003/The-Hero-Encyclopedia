@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity"/>
-        <activity android:name=".hero_stats" />
+        <activity android:name=".hero_stats"/>
     </application>
 
 </manifest>
