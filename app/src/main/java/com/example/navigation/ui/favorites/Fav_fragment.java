@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -30,20 +32,36 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Fav_fragment extends Fragment {
-    RecyclerView recyclerView;
+    public static RecyclerView recyclerView;
     RecyclerView_Fav_Adapter recyclerView_fav_adapter;
     List<Hero_info_table> hero_info_tableList=new ArrayList<>();
     List<Hero_info_table> hero_info_tableList_copy=new ArrayList<>();
     Hero_info_table hero_info_table;
+    public static ImageView imageView;
+    public static TextView textView;
     private static final String TAG = "Fav_fragment";
     @Override
     public View onCreateView( LayoutInflater inflater,  ViewGroup container,  Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_favorite,container,false);
         recyclerView=view.findViewById(R.id.recycler_view);
+       imageView=view.findViewById(R.id.nofav_image);
+         textView=view.findViewById(R.id.nofav_text);
         Thread thread=new Thread(new Runnable() {
             @Override
             public void run() {
                 hero_info_tableList= TableRoomDatabase.getInstance(view.getContext()).hero_info_dao().get_hero();
+                if(hero_info_tableList.size()!=0)
+                {
+                    recyclerView.setVisibility(View.VISIBLE);
+                    textView.setVisibility(View.INVISIBLE);
+                    imageView.setVisibility(View.INVISIBLE);
+                }
+                else
+                {
+                    recyclerView.setVisibility(View.INVISIBLE);
+                    textView.setVisibility(View.VISIBLE);
+                    imageView.setVisibility(View.VISIBLE);
+                }
                 recyclerView_fav_adapter=new RecyclerView_Fav_Adapter(hero_info_tableList);
                 recyclerView.setAdapter(recyclerView_fav_adapter);
                 EditText editText=(EditText)view.findViewById(R.id.editTextTextPersonName);

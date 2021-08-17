@@ -1,15 +1,21 @@
 package com.example.navigation;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.navigation.ui.favorites.Fav_fragment;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -20,6 +26,7 @@ public class RecyclerView_Fav_Adapter extends RecyclerView.Adapter<RecyclerView_
     public static List<Hero_info_table> tables;
     Hero_info_table hero_info_table;
     int r=0;
+    Context context;
    public static List<String> n_remove=new ArrayList<>();
     private static final String TAG = "RecyclerView_Fav_Adapter";
     public RecyclerView_Fav_Adapter(List<Hero_info_table> list) {
@@ -41,7 +48,24 @@ public class RecyclerView_Fav_Adapter extends RecyclerView.Adapter<RecyclerView_
         holder.text_name.setText(list.get(position).getHero_name());
         Picasso.get().load(list.get(position).getImage_url()).resize(300,232).into(holder.image_fav);
         holder.imageButton.setVisibility(View.INVISIBLE);
-        holder.imageButton_fav.setVisibility(View.INVISIBLE);
+        holder.imageButton_fav.setVisibility(View.VISIBLE);
+        holder.imageButton_fav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Delete_fav delete_fav=new Delete_fav();
+                delete_fav.execute(list.get(position).getHero_name());
+                list.remove(position);
+                notifyDataSetChanged();
+                notifyItemRangeChanged(position,list.size());
+                if(list.size()==0)
+                {Fav_fragment.recyclerView.setVisibility(View.INVISIBLE);
+                Fav_fragment.textView.setText("TIME TO ADD NEW FAVORITES!!!!!!");
+                    Fav_fragment.textView.setVisibility(View.VISIBLE);
+                    Fav_fragment.imageView.setVisibility(View.VISIBLE);
+                    Toast.makeText(v.getContext(), "IT IS TIME TO ADD NEW FAVORITES",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     @Override
@@ -71,7 +95,15 @@ public class RecyclerView_Fav_Adapter extends RecyclerView.Adapter<RecyclerView_
         }
     }
 
-
-
+    class Delete_fav extends AsyncTask<String,Void,Void>
+    {
+        @Override
+        protected Void doInBackground(String... strings) {
+            Hero_info_table hero_info_table=TableRoomDatabase.getInstance(context).hero_info_dao().findByName(strings[0]);
+            Log.d(TAG,hero_info_table.toString());
+            TableRoomDatabase.getInstance(context).hero_info_dao().delete_hero(hero_info_table);
+            return null;
+        }
+    }
 
 }

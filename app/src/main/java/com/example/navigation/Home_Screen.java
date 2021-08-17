@@ -14,6 +14,8 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -80,6 +82,7 @@ public class Home_Screen extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setStatusBarColor(Color.parseColor("#0b1f6e"));
         }
+
         ImageView imageView = (ImageView) findViewById(R.id.imageView2);
         ImageView imageView2 = (ImageView) findViewById(R.id.imageView3);
         TextView textView=(TextView)findViewById(R.id.textView);
@@ -113,9 +116,6 @@ public class Home_Screen extends AppCompatActivity {
             if(chk_state==true) {
                 Load_task load_task = new Load_task();
                 load_task.execute();
-            }
-            else {
-                Toast.makeText(getApplicationContext(),"hi",Toast.LENGTH_SHORT).show();
             }
         }while(chk_state==false);
     }
