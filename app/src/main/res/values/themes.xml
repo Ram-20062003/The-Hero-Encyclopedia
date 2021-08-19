@@ -12,6 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">@color/pink</item>
         <!-- Customize your theme here. -->
+        <item name="android:windowContentTransitions" tools:targetApi="lollipop">true</item>
     </style>
 
     <style name="Theme.Navigation.NoActionBar">
@@ -21,6 +22,6 @@
     <style name="Theme.Navigation.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.Navigation.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
+    
 
 </resources>
