@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Find your hero</string>
+    <string name="app_name">SuperHero Multiverse</string>
     <string name="title_activity_main">activity_maim_screen</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
