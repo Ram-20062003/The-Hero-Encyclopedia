@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.transition.Explode;
+import android.transition.Fade;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -123,6 +125,16 @@ Context context;
                 @Override
                 public void onClick(View v) {
                     pos=getAdapterPosition();
+
+                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                            Fade fade=new Fade();
+                            View decor =((Activity)v.getContext()).getWindow().getDecorView();
+                            fade.excludeTarget(android.R.id.statusBarBackground,true);
+                            ((Activity)v.getContext()).getWindow().setEnterTransition(fade);
+                            ((Activity)v.getContext()).getWindow().setExitTransition(fade);
+
+                        }
+
                     //Toast.makeText(v.getContext(), "Hi I am "+list_name.get(getAdapterPosition()),Toast.LENGTH_LONG).show();
                     Intent intent=new Intent(v.getContext(),hero_stats.class);
                     intent.putExtra("name",t_name.getText());
