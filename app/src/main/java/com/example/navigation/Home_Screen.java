@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.AsyncQueryHandler;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.AnimatedImageDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -86,14 +87,16 @@ public class Home_Screen extends AppCompatActivity {
         ImageView imageView = (ImageView) findViewById(R.id.imageView2);
         ImageView imageView2 = (ImageView) findViewById(R.id.imageView3);
         TextView textView=(TextView)findViewById(R.id.textView);
+        TextView textView1=(TextView)findViewById(R.id.textView2);
         Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade);
         Animation animation2 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.down);
         Animation animation1=AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fading);
         imageView.setAnimation(animation1);
-        imageView2.setAnimation(animation1);
         imageView.setAnimation(animation);
+        imageView2.setAnimation(animation1);
         imageView2.setAnimation(animation2);
         textView.setAnimation(animation1);
+        textView1.setAnimation(animation1);
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
